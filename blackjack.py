@@ -28,7 +28,7 @@ def calc(dealer, carta1, carta2):
     double = (carta1 == carta2)
     if (carta1 == 1): card_a(dealer, carta2)
     elif (double): card_d(dealer, carta1)
-    elif (sum > 12 and not double): card_h(dealer)
+    elif (sum > 12 and not double): card_h(dealer,sum)
     elif (sum > 4 and sum < 9): hit()
     else: card_m(dealer, sum)
 
@@ -54,8 +54,8 @@ def card_m(dealer, sum):
         else:
             hit()
 
-def card_h(dealer):
-    if (dealer > 6):
+def card_h(dealer, sum):
+    if (dealer > 6 and sum < 17):
         hit()
         return
     else:
